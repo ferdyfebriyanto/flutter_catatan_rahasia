@@ -1,16 +1,20 @@
-# flutter_project_evaluasi_35
+# Evaluasi Pekan 7
 
-A new Flutter project.
+## Studi Kasus
 
-## Getting Started
+* Membuat aplikasi catatan rahasia
+* Memiliki fitur splash screen
+* Memiliki fitur login berupa pin
+* Memiliki fitur menambahkan catatan
+* Mengimplementasikan shared preferences
 
-This project is a starting point for a Flutter application.
+## Hasil 
 
-A few resources to get you started if this is your first Flutter project:
+![Splash Screen](./images/01.png)
+* Gambar diatas adalah halaman splash screen, yang muncul selama 3 detik
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![Halaman Auth](./images/02.png)
+* Gambar diatas adalah halaman auth, yang muncul ketika aplikasi pertama kali dijalankan. Memasukkan pin 123456 agar dapat masuk ke aplikasi.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Halaman Utama](./images/03.png)
+* Gambar diatas adalah halaman utama, yang muncul ketika aplikasi berhasil login. Terdapat tombol tambah catatan untuk menambahkan catatan baru. Meskipun aplikasi ditutup, catatan yang sudah dibuat akan tetap tersimpan.

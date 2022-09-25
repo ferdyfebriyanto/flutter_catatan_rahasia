@@ -1,36 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project_evaluasi_35/login.dart';
-
-class MySplash extends StatefulWidget {
-  const MySplash({super.key});
-
-  @override
-  State<MySplash> createState() => _MySplashState();
-}
-
-class _MySplashState extends State<MySplash> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        const Expanded(
-          child: LogoApp(),
-        ),
-        ElevatedButton(
-          child: const Text('Sign In'),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const MyLoginPage(),
-              ),
-            );
-          },
-        ),
-      ],
-    );
-  }
-}
+import 'package:flutter_project_evaluasi_35/pages/login.dart';
 
 class AnimatedLogo extends AnimatedWidget {
   const AnimatedLogo({super.key, required Animation<double> animation})
@@ -39,12 +8,14 @@ class AnimatedLogo extends AnimatedWidget {
   @override
   Widget build(BuildContext context) {
     final animation = listenable as Animation<double>;
-    return Center(
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 10),
-        height: animation.value,
-        width: animation.value,
-        child: Image.asset('assets/cr.png'),
+    return Scaffold(
+      body: Center(
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 10),
+          height: animation.value,
+          width: animation.value,
+          child: Image.asset('assets/cr.png'),
+        ),
       ),
     );
   }
@@ -68,6 +39,17 @@ class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
     controller =
         AnimationController(duration: const Duration(seconds: 2), vsync: this);
     animation = Tween<double>(begin: 0, end: 300).animate(controller);
+    animation.addStatusListener(
+      (status) {
+        if (status == AnimationStatus.completed) {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (BuildContext context) => LoginPage(),
+            ),
+          );
+        }
+      },
+    );
     controller.forward();
   }
 
